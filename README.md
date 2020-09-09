@@ -10,14 +10,22 @@ https://bintangkevin29.github.io/graph-and-memoized-table
 
 ### Installation
 
-Clone repository
+##### 1. Clone Repo
 
 > git clone https://github.com/bintangkevin29/graph-and-memoized-table.git
 
-Install dependency
+##### 2. Install Dependency
 
-> npm install
+    yarn install
 
-Run
+or
 
-> npm start
+    npm install
+
+##### 3. Serve
+
+    yarn start
+
+or
+
+    npm start
