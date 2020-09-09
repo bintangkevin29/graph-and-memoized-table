@@ -6,6 +6,7 @@ import useFetch from "./components/use-fetch/use-fetch.component";
 import { useSelector, useDispatch } from "react-redux";
 import { selectPeoplePage } from "./redux/people/people.selector";
 import { setPeople } from "./redux/people/people.action";
+import GraphSection from "./components/graph-section";
 
 const App: React.FC = () => {
   const peoplePage = useSelector(selectPeoplePage);
@@ -24,6 +25,7 @@ const App: React.FC = () => {
   return (
     <Fragment>
       <TableSection />
+      <GraphSection />
     </Fragment>
   );
 };
