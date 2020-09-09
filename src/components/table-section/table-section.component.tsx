@@ -22,7 +22,11 @@ const TableSection: React.FC = () => {
   const isPageExist = people.find((p) => p.page === page);
   const shouldPageExist = isPageExist === undefined;
 
-  const memoizedPageValue = useMemo(() => page, [shouldPageExist]);
+  const memoizedPageValue = useMemo(
+    () => page,
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+    [shouldPageExist]
+  );
 
   const res = useFetch(`https://swapi.dev/api/people/?page=${memoizedPageValue}`);
 
@@ -30,6 +34,7 @@ const TableSection: React.FC = () => {
     if (res.response && !isPageExist) {
       dispatch(appendPeople(res.response.results, page));
     }
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [res.response]);
 
   useEffect(() => {
