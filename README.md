@@ -12,7 +12,7 @@ https://bintangkevin29.github.io/graph-and-memoized-table
 
 ##### 1. Clone Repo
 
-> git clone https://github.com/bintangkevin29/graph-and-memoized-table.git
+    git clone https://github.com/bintangkevin29/graph-and-memoized-table.git
 
 ##### 2. Install Dependency
 
