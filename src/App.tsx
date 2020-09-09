@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App"> 
-    </div>
-  );
-}
+import "./style/main.scss";
+import TableSection from "./components/table-section";
+
+const App: React.FC = () => {
+  return <TableSection />;
+};
 
 export default App;
