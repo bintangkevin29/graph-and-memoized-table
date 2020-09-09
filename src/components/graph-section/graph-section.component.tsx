@@ -13,8 +13,8 @@ const GraphSection: React.FC = () => {
 
   return (
     <Section className="graphSection">
-      <SectionHeader>Graph</SectionHeader>
-      <BarChart width={730} height={250} data={chartData}>
+      <SectionHeader>Graph (Current Page)</SectionHeader>
+      <BarChart width={1080} height={250} data={chartData}>
         <CartesianGrid strokeDasharray="10 10" />
         <XAxis dataKey="name" />
         <YAxis />

@@ -12,3 +12,8 @@ export const appendPeople = (data: PeopleProps[], page: number): PeopleActions =
     payload: dataToState,
   };
 };
+
+export const setPeopleCurrentPage = (data: PeopleProps[]): PeopleActions => ({
+  type: "PEOPLE_SET_CURRENT_PAGE",
+  payload: data,
+});

@@ -4,17 +4,21 @@ import Section from "../section";
 import SectionHeader from "../section-header";
 import { Table, Pagination } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { selectPeople, selectPeoplePage } from "../../redux/people/people.selector";
+import {
+  selectPeople,
+  selectPeoplePage,
+  selectCurrentPeoplePage,
+} from "../../redux/people/people.selector";
 
 import "./table-section.style.scss";
 import useFetch from "../use-fetch/use-fetch.component";
-import { appendPeople } from "../../redux/people/people.action";
+import { appendPeople, setPeopleCurrentPage } from "../../redux/people/people.action";
 
 const TableSection: React.FC = () => {
   const people = useSelector(selectPeople);
   const totalPages = useSelector(selectPeoplePage);
 
-  const [peoplePage, setPeoplePage] = useState<PeopleProps[]>([]);
+  const peoplePage = useSelector(selectCurrentPeoplePage);
   const [page, setPage] = useState(1);
 
   const dispatch = useDispatch();
@@ -38,7 +42,8 @@ const TableSection: React.FC = () => {
   }, [res.response]);
 
   useEffect(() => {
-    setPeoplePage(people.filter((p) => p.page === page));
+    dispatch(setPeopleCurrentPage(people.filter((p) => p.page === page)));
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, people]);
 
   const pages = [];

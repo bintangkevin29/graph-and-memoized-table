@@ -1,6 +1,7 @@
 interface PeopleState {
   people: PeopleProps[];
   total: int;
+  currentPage: PeopleProps[];
 }
 
 interface PeopleProps {
@@ -30,6 +31,10 @@ type PeopleActions =
     }
   | {
       type: "PEOPLE_APPEND";
+      payload: PeopleProps[];
+    }
+  | {
+      type: "PEOPLE_SET_CURRENT_PAGE";
       payload: PeopleProps[];
     };
 
