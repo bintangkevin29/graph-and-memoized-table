@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/graph-and-memoized-table/static/css/main.ee651abd.chunk.css",
+    "main.js": "/graph-and-memoized-table/static/js/main.aa00398f.chunk.js",
+    "main.js.map": "/graph-and-memoized-table/static/js/main.aa00398f.chunk.js.map",
+    "runtime-main.js": "/graph-and-memoized-table/static/js/runtime-main.2b4447d3.js",
+    "runtime-main.js.map": "/graph-and-memoized-table/static/js/runtime-main.2b4447d3.js.map",
+    "static/js/2.e5906661.chunk.js": "/graph-and-memoized-table/static/js/2.e5906661.chunk.js",
+    "static/js/2.e5906661.chunk.js.map": "/graph-and-memoized-table/static/js/2.e5906661.chunk.js.map",
+    "index.html": "/graph-and-memoized-table/index.html",
+    "precache-manifest.bc33ff3cf8b32387367f288334cbab70.js": "/graph-and-memoized-table/precache-manifest.bc33ff3cf8b32387367f288334cbab70.js",
+    "service-worker.js": "/graph-and-memoized-table/service-worker.js",
+    "static/css/main.ee651abd.chunk.css.map": "/graph-and-memoized-table/static/css/main.ee651abd.chunk.css.map",
+    "static/js/2.e5906661.chunk.js.LICENSE.txt": "/graph-and-memoized-table/static/js/2.e5906661.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2b4447d3.js",
+    "static/js/2.e5906661.chunk.js",
+    "static/css/main.ee651abd.chunk.css",
+    "static/js/main.aa00398f.chunk.js"
+  ]
+}
