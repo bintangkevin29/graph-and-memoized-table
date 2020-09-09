@@ -8,14 +8,11 @@ const useFetch = (url: string, options: AxiosRequestConfig = {}) => {
   useEffect(() => {
     const fetchData = () => {
       axios(url, options)
-        .then((res) => {
-          setResponse(res.data);
-        })
-        .catch((err: AxiosError) => {
-          setError(err.message);
-        });
+        .then((res) => setResponse(res.data))
+        .catch((err: AxiosError) => setError(err.message));
     };
     fetchData();
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return { response, error };
 };
