@@ -23,10 +23,15 @@ interface PeopleProps {
   page: number;
 }
 
-type PeopleActions = {
-  type: "PEOPLE_SET";
-  payload: PeopleState;
-};
+type PeopleActions =
+  | {
+      type: "PEOPLE_SET";
+      payload: number;
+    }
+  | {
+      type: "PEOPLE_APPEND";
+      payload: PeopleProps[];
+    };
 
 interface PeopleFetchResult {
   count: number;

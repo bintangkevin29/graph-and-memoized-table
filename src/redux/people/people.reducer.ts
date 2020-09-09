@@ -6,7 +6,9 @@ const INIT_STATE: PeopleState = {
 const peopleReducer = (state = INIT_STATE, action: PeopleActions): PeopleState => {
   switch (action.type) {
     case "PEOPLE_SET":
-      return { ...state, people: action.payload.people, total: action.payload.total };
+      return { ...state, total: action.payload };
+    case "PEOPLE_APPEND":
+      return { ...state, people: [...action.payload, ...state.people] };
     default:
       return state;
   }

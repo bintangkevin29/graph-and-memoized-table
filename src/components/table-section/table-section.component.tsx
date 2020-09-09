@@ -1,21 +1,49 @@
-import React from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
 import Section from "../section";
 import SectionHeader from "../section-header";
 import { Table, Pagination } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectPeople, selectPeoplePage } from "../../redux/people/people.selector";
 
 import "./table-section.style.scss";
+import useFetch from "../use-fetch/use-fetch.component";
+import { appendPeople } from "../../redux/people/people.action";
 
 const TableSection: React.FC = () => {
   const people = useSelector(selectPeople);
   const totalPages = useSelector(selectPeoplePage);
 
+  const [peoplePage, setPeoplePage] = useState<PeopleProps[]>([]);
+  const [page, setPage] = useState(1);
+
+  const dispatch = useDispatch();
+
+  const isPageExist = people.find((p) => p.page === page);
+  const shouldPageExist = isPageExist === undefined;
+
+  const memoizedPageValue = useMemo(() => page, [shouldPageExist]);
+
+  const res = useFetch(`https://swapi.dev/api/people/?page=${memoizedPageValue}`);
+
+  useEffect(() => {
+    if (res.response && !isPageExist) {
+      dispatch(appendPeople(res.response.results, page));
+    }
+  }, [res.response]);
+
+  useEffect(() => {
+    setPeoplePage(people.filter((p) => p.page === page));
+  }, [page, people]);
+
   const pages = [];
 
-  for (let i = 0; i < totalPages; i++) {
-    pages.push(<Pagination.Item>{i + 1}</Pagination.Item>);
+  for (let i = 1; i <= totalPages; i++) {
+    pages.push(
+      <Pagination.Item key={i} onClick={() => setPage(i)}>
+        {i}
+      </Pagination.Item>
+    );
   }
 
   return (
@@ -32,7 +60,7 @@ const TableSection: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {people.map((p, i) => (
+          {peoplePage.map((p, i) => (
             <tr key={i}>
               <td>{p.name}</td>
               <td>{p.height}</td>
