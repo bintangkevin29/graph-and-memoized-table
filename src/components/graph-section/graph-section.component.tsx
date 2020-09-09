@@ -3,13 +3,17 @@ import Section from "../section";
 import SectionHeader from "../section-header";
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from "recharts";
 import { useSelector } from "react-redux";
-import { selectPeople } from "../../redux/people/people.selector";
+import { selectCurrentPeoplePage } from "../../redux/people/people.selector";
 
 import "./graph-section.style.scss";
 
 const GraphSection: React.FC = () => {
-  const data = useSelector(selectPeople);
-  const chartData = data.map((d) => ({ name: d.name, Height: d.height, Weight: d.mass }));
+  const data = useSelector(selectCurrentPeoplePage);
+  const chartData = data.map((d) => ({
+    name: d.name,
+    Height: d.height === "unknown" ? "unknown" : Number(d.height.replace(",", "")),
+    Weight: d.mass === "unknown" ? "unknown" : Number(d.mass.replace(",", "")),
+  }));
 
   return (
     <Section className="graphSection">
